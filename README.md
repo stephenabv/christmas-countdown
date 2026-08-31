@@ -1,5 +1,7 @@
 # 🎄 Philippine Christmas Countdown
 
+**Live:** https://christmas-countdown-liart.vercel.app
+
 A countdown clock to **September 1** — the day the Christmas season officially
 opens in the Philippines and the "-ber months" begin. When the clock hits zero
 the site announces it with a modal, a browser notification, and Mariah Carey's
@@ -64,9 +66,13 @@ Two query parameters make the arrival testable without waiting for September:
 
 ## Deployment
 
-The project deploys to Vercel from the `main` branch: every push to `main`
-ships to production, and pull requests get preview deployments. No build
-configuration is needed — Vercel detects Next.js automatically.
+The Vercel project is linked to this repository with `main` as the production
+branch: every push to `main` ships to production, and pull requests get preview
+deployments. No build configuration is needed — Vercel detects Next.js
+automatically.
+
+Note that Vercel refuses to build Next.js releases with known CVEs, so keep the
+`next` dependency current.
 
 ## Stack
 
