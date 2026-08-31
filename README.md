@@ -1,6 +1,6 @@
 # 🎄 Philippine Christmas Countdown
 
-**Live:** https://christmas-countdown-liart.vercel.app
+**Live:** https://pinoy-christmas-countdown.vercel.app
 
 A countdown clock to **September 1** — the day the Christmas season officially
 opens in the Philippines and the "-ber months" begin. When the clock hits zero

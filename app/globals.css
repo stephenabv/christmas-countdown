@@ -23,6 +23,9 @@ body {
 
 body {
   min-height: 100vh;
+  /* Mobile browsers size 100vh to the viewport with the URL bar hidden, which
+     leaves the page taller than what is actually on screen. */
+  min-height: 100dvh;
   color: var(--text);
   background: radial-gradient(
       120% 90% at 50% 0%,
@@ -39,24 +42,34 @@ body {
 .page {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 3rem 1.25rem 2rem;
-  overflow: hidden;
+  padding: 0 1.25rem;
 }
 
+/*
+ * The main content takes the leftover height and centres itself inside it, so
+ * the footer keeps the same distance from the bottom edge at every viewport
+ * height. Centring the page as one block instead made that gap swing between
+ * 32px and 106px depending on how tall the screen was.
+ *
+ * `1 0 auto` rather than `1`: the content must never shrink below its natural
+ * height on a short screen, or it overflows past the top of the page.
+ */
 .content {
   position: relative;
   z-index: 1;
+  flex: 1 0 auto;
   width: 100%;
   max-width: 62rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
+  padding: 2.5rem 0 2rem;
   text-align: center;
 }
 
@@ -424,7 +437,9 @@ body {
 .footer {
   position: relative;
   z-index: 1;
+  flex: none;
   max-width: 34rem;
+  padding: 0 0 2rem;
   text-align: center;
   color: rgba(157, 178, 206, 0.7);
   font-size: 0.78rem;
