@@ -10,7 +10,6 @@ import {
   getSeasonState,
   type Remaining,
 } from "@/lib/season";
-import { SONG_ARTIST, SONG_TITLE } from "@/lib/song";
 
 type NotificationState = "unsupported" | "default" | "granted" | "denied";
 
@@ -219,7 +218,7 @@ export default function Countdown() {
             {mounted ? formatTargetPHT(target) : "\u00A0"}
           </p>
 
-          {mounted && (
+          {mounted && permission !== "unsupported" && (
             <div className="actions">
               {permission === "granted" ? (
                 <p className="permission-note">
@@ -231,7 +230,7 @@ export default function Countdown() {
                   Notifications are blocked in your browser, but the announcement
                   will still pop up here.
                 </p>
-              ) : permission === "unsupported" ? null : (
+              ) : (
                 <button
                   type="button"
                   className="btn btn-primary"
@@ -240,9 +239,6 @@ export default function Countdown() {
                   🔔 Notify me when it starts
                 </button>
               )}
-              <p className="song-note">
-                At zero: {SONG_ARTIST} — &ldquo;{SONG_TITLE}&rdquo;
-              </p>
             </div>
           )}
         </section>
